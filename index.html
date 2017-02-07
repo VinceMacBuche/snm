@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script src="vue.js"></script>
+    <script src="axios.js"></script>
+    <link rel="stylesheet" type="text/css" href="semantic.css">
+    <link rel="stylesheet" type="text/css" href="jquery-3.1.1.min.js">
+    <link rel="stylesheet" type="text/css" href="semantic.js">
+  </head>
+  <body>
+    <h1 class="ui center aligned header"> Simple Node Manager</h1>
+    <div class="ui four column stackable grid container" id="app">
+      <div class="column">
+      <div class="ui labeled input">
+      <label class="ui label" for="endpoint">Url</label>
+        <input class="ui input" id="endpoint" v-model="endpoint" placeholder="Your Rudder URL "> 
+      </div>
+      </div>
+      <div class="column">
+      <div class="ui labeled input">
+        <label class="ui label" for="token">Token</label>
+        <input class="ui input" id="token" v-model="token" placeholder="Your token"> 
+      </div>
+      </div>
+      <div class="column">
+        <button class="ui button"@click="getNodes()"> Get Nodes!</button>
+      </div>
+
+      <div class="row four column">
+        <table class="ui celled table">
+            <thead>
+                  <tr><th>Node hostname</th>
+                        <th>Node id</th>
+                            <th>actions <button class="ui button" @click="runAll()">Run all nodes</button></th>
+                              </tr></thead>
+                                <tbody>
+                <tr v-for="node in nodes">
+                  <td>{{node.hostname}}</td>
+                  <td>{{node.id}}</td>
+                  <td><button class="ui button" @click="runNode(node)">Run node</button></td>
+                
+                </tr>
+              </tbody>
+        </table>
+        </div>  <div class="row">
+        <pre>{{output}}</pre>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
