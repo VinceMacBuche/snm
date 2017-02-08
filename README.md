@@ -7,7 +7,7 @@ It was created as a demo for My talk @ config management camp
 It's clearly needs some polishing, and does not work as is, but can be extended or improved in the future
 
 
-![Screenshot](simple_none_manager.png)
+![Screenshot](simple_node_manager.png)
 
 ## How to make it work 
 
